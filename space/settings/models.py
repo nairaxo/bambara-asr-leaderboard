@@ -3,7 +3,7 @@ from pydantic_settings import BaseSettings
 import os
 
 class Settings(BaseSettings):
-    dataset_url: str      = Field(validation_alias="DATASET_URL", default="sudoping01/bambara-speech-recognition-benchmark")
+    dataset_url: str      = Field(validation_alias="DATASET_URL", default="sudoping01/bam-asr-benchmark")
     dataset_config: str   = Field(validation_alias="DATASET_CONFIG", default="default")
     split_name: str       = Field(validation_alias="SPLIT_NAME", default="eval")
     leaderboard_file: str = Field(validation_alias="LEADERBOARD_FILE", default="leaderboard.csv")
