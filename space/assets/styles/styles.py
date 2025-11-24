@@ -124,6 +124,27 @@ div.svelte-1nguped {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07) !important;
 }
 
+/* FIXED: Best model text visibility */
+.best-model-card h3 {
+    color: #2f3b7d !important;
+}
+
+.best-model-card ul {
+    list-style: none !important;
+    padding-left: 0 !important;
+}
+
+.best-model-card li {
+    color: #212529 !important;
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+}
+
+.best-model-card strong {
+    color: #7d3561 !important;
+    font-weight: 700 !important;
+}
+
 /* ============================================
    TABS STYLING
    ============================================ */
@@ -305,14 +326,38 @@ button[variant="primary"]:hover {
    ============================================ */
 
 .citation-section {
-    background: #f8f9fa !important;
+    background: #ffffff !important;
     border-radius: 12px !important;
     padding: 24px !important;
     border-left: 4px solid #7d3561 !important;
 }
 
+.citation-section h2 {
+    color: #2f3b7d !important;
+}
+
+.citation-section h3 {
+    color: #7d3561 !important;
+}
+
+.citation-section p {
+    color: #212529 !important;
+}
+
+.citation-section ul {
+    color: #212529 !important;
+}
+
+.citation-section li {
+    color: #212529 !important;
+}
+
+.citation-section strong {
+    color: #2f3b7d !important;
+}
+
 .citation-section pre {
-    background: #ffffff !important;
+    background: #f8f9fa !important;
     border: 1px solid #dee2e6 !important;
     border-radius: 8px !important;
     padding: 16px !important;
@@ -327,37 +372,43 @@ button[variant="primary"]:hover {
 }
 
 /* ============================================
-   MARKDOWN CONTENT
+   MARKDOWN CONTENT - FIXED TEXT VISIBILITY
    ============================================ */
 
-div[class*="gradio-container"] .prose h2 {
+div[class*="gradio-container"] .prose h1 {
     color: #2f3b7d !important;
+    font-weight: 700 !important;
+}
+
+div[class*="gradio-container"] .prose h2 {
+    color: #000000 !important;
     font-weight: 700 !important;
     margin-top: 32px !important;
     margin-bottom: 16px !important;
 }
 
 div[class*="gradio-container"] .prose h3 {
-    color: #7d3561 !important;
+    color: #2f3b7d !important;
     font-weight: 600 !important;
     margin-top: 24px !important;
     margin-bottom: 12px !important;
 }
 
 div[class*="gradio-container"] .prose p {
-    color: #495057 !important;
+    color: #212529 !important;
     line-height: 1.7 !important;
     margin-bottom: 16px !important;
 }
 
 div[class*="gradio-container"] .prose ul, 
 div[class*="gradio-container"] .prose ol {
-    color: #495057 !important;
+    color: #212529 !important;
     line-height: 1.7 !important;
     padding-left: 24px !important;
 }
 
 div[class*="gradio-container"] .prose li {
+    color: #212529 !important;
     margin-bottom: 8px !important;
 }
 
@@ -373,6 +424,21 @@ div[class*="gradio-container"] .prose code {
     padding: 2px 6px !important;
     border-radius: 4px !important;
     font-size: 0.9em !important;
+}
+
+div[class*="gradio-container"] .prose pre {
+    background: #f8f9fa !important;
+    border: 1px solid #dee2e6 !important;
+    border-radius: 8px !important;
+    padding: 16px !important;
+    overflow-x: auto !important;
+}
+
+div[class*="gradio-container"] .prose pre code {
+    background: transparent !important;
+    border: none !important;
+    color: #212529 !important;
+    padding: 0 !important;
 }
 
 /* ============================================
