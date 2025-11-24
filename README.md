@@ -20,12 +20,12 @@ Evaluations use the  **[Bambara ASR Benchmark](https://huggingface.co/datasets/M
 1. Access the test audio from the dataset.
 2. Generate transcriptions.
 3. Format as CSV (`id,text` matching dataset IDs).
-4. Visit the [HF Space](https://huggingface.co/spaces/MALIBA-AI/bambara-asr-leaderboard).
+4. Visit the [HF Space](https://huggingface.co/spaces/sudoping01/bam-asr-leaderboard).
 4. Submit via the app's "Submit New Results" tab.
 
 ## Usage
 
-- Visit the [HF Space](https://huggingface.co/spaces/MALIBA-AI/bambara-asr-leaderboard).
+- Visit the [HF Space](https://huggingface.co/spaces/sudoping01/bam-asr-leaderboard).
 - Explore tabs: Leaderboard, Model Performance, Comparisons, Submissions, Dataset Info.
 - Submit: Upload model name and CSV; scores computed automatically.
 
