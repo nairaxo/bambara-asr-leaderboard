@@ -9,14 +9,29 @@ import sys
 import subprocess
 from settings.models import Settings
 
-def load_references():
-    config = Settings()
-    try:
-        dataset = load_dataset(config.dataset_url, name=config.dataset_config, token=config.hf_token)["eval"]
-        return {row["id"]: row["text"] for row in dataset}
-    except Exception as e:
-        raise ValueError(f"Failed to load the dataset: {e}")
+# def load_references():
+#     config = Settings()
+#     try:
+#         dataset = load_dataset(config.dataset_url, name=config.dataset_config, token=config.hf_token)["eval"]
+#         return {row["id"]: row["text"] for row in dataset}
+#     except Exception as e:
+#         raise ValueError(f"Failed to load the dataset: {e}")
 
+def load_references():
+       config = Settings()
+       try:
+           token = None
+           if config.hf_token and str(config.hf_token).strip() and str(config.hf_token).strip().lower() != 'none':
+               token = config.hf_token
+           
+           dataset = load_dataset(
+               config.dataset_url, 
+               name=config.dataset_config, 
+               token=token
+           )["eval"]
+           return {row["id"]: row["text"] for row in dataset}
+       except Exception as e:
+           raise ValueError(f"Failed to load the dataset: {e}")
 
 def mask_sensitive_info(text):
     if text is None:
