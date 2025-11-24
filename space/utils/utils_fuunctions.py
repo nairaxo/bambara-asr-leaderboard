@@ -135,7 +135,7 @@ def add_medals_to_models(df, score_col="Combined_Score"):
 
 
 def get_current_leaderboard():
-    git_pull()
+    # git_pull()
     config = Settings()
     leaderboard_file = config.leaderboard_file
     try:
