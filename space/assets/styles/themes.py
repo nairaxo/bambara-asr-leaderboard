@@ -329,21 +329,79 @@ input[type="text"]:focus, textarea:focus, .input-field:focus {
     box-shadow: 0 0 0 3px rgba(125, 53, 97, 0.1) !important;
 }
 
-/* Slider styling with dark text */
-.gr-slider label, .gr-slider span {
+/* ============================================
+   FORCE LIGHT BACKGROUNDS ON ALL FORM GROUPS
+   ============================================ */
+
+/* Target all form wrappers and force light background */
+.gr-form, .gr-box, .gr-group, .gr-panel,
+div[class*="form"], div[class*="block"], div[class*="wrap"] {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+}
+
+/* Specific Gradio component backgrounds */
+.gradio-container .gr-form,
+.gradio-container .gr-box,
+.gradio-container .gr-group {
+    background: #ffffff !important;
+}
+
+/* Force all inner divs to have light background */
+.gr-textbox, .gr-dropdown, .gr-radio, .gr-checkbox, .gr-file, .gr-slider {
+    background: transparent !important;
+}
+
+/* Target the dark wrapper divs */
+div[class*="svelte"] {
+    --block-background-fill: #ffffff !important;
+    --background-fill-primary: #ffffff !important;
+    --background-fill-secondary: #f8f9fa !important;
+}
+
+/* ============================================
+   FORCE DARK TEXT ON ALL LABELS AND SPANS
+   ============================================ */
+
+/* Universal label targeting */
+label {
     color: #212529 !important;
 }
 
-input[type="range"] + span {
+/* All spans inside form elements */
+.gr-form span, .gr-box span, .gr-group span, .gr-panel span,
+.gr-textbox span, .gr-dropdown span, .gr-radio span, 
+.gr-checkbox span, .gr-file span, .gr-slider span {
     color: #212529 !important;
 }
 
-/* Radio buttons with dark text */
-.gr-radio label, .gr-radio span {
+/* Gradio specific label classes */
+[class*="label"], [class*="Label"] {
     color: #212529 !important;
 }
 
-.gr-radio input[type="radio"] + span {
+/* Info/helper text */
+[class*="info"], [class*="Info"], .info-text {
+    color: #666666 !important;
+}
+
+/* Radio button specific styling */
+.gr-radio label, 
+.gr-radio span,
+.gr-radio input[type="radio"] + label,
+.gr-radio input[type="radio"] ~ span,
+input[type="radio"] + label,
+input[type="radio"] ~ label,
+.radio-group label,
+.radio-group span {
+    color: #212529 !important;
+}
+
+/* Checkbox labels */
+.gr-checkbox label,
+.gr-checkbox span,
+input[type="checkbox"] + label,
+input[type="checkbox"] ~ span {
     color: #212529 !important;
 }
 
@@ -360,6 +418,21 @@ input[type="range"] + span {
 /* Textbox */
 .gr-textbox label, .gr-textbox span {
     color: #212529 !important;
+}
+
+/* Slider styling with dark text */
+.gr-slider label, .gr-slider span {
+    color: #212529 !important;
+}
+
+input[type="range"] + span {
+    color: #212529 !important;
+}
+
+/* Number input in sliders */
+input[type="number"] {
+    color: #212529 !important;
+    background: #ffffff !important;
 }
 
 button[variant="primary"] {
@@ -615,6 +688,129 @@ input[type="number"] {
 
 /* Force text color on all elements */
 .dark-text {
+    color: #212529 !important;
+}
+
+/* ============================================
+   AGGRESSIVE GRADIO OVERRIDES
+   ============================================ */
+
+/* Custom element classes for form inputs */
+.light-input, .light-input * {
+    background: #ffffff !important;
+    color: #212529 !important;
+}
+
+.light-input input {
+    background: #ffffff !important;
+    color: #212529 !important;
+    border: 2px solid #dee2e6 !important;
+}
+
+.light-radio, .light-radio * {
+    background: transparent !important;
+    color: #212529 !important;
+}
+
+.light-radio label {
+    color: #212529 !important;
+    background: #f8f9fa !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    margin-right: 10px !important;
+}
+
+.light-file, .light-file * {
+    background: #f8f9fa !important;
+    color: #212529 !important;
+}
+
+.light-file label {
+    color: #212529 !important;
+}
+
+/* Override Gradio's dark theme variables */
+:root, .gradio-container, .gr-interface, [class*="gradio"] {
+    --body-text-color: #212529 !important;
+    --block-label-text-color: #212529 !important;
+    --block-info-text-color: #666666 !important;
+    --input-label-text-color: #212529 !important;
+    --block-background-fill: #ffffff !important;
+    --background-fill-primary: #ffffff !important;
+    --background-fill-secondary: #f8f9fa !important;
+    --neutral-900: #212529 !important;
+    --neutral-800: #343a40 !important;
+    --neutral-700: #495057 !important;
+}
+
+/* Force all form element containers to be light */
+.gradio-container div[class*="block"],
+.gradio-container div[class*="wrap"],
+.gradio-container div[class*="container"],
+.gradio-container div[class*="group"] {
+    background: #ffffff !important;
+    color: #212529 !important;
+}
+
+/* Specific targeting for Svelte-generated classes */
+[class*="svelte"][class*="wrap"],
+[class*="svelte"][class*="block"],
+[class*="svelte"][class*="container"] {
+    background: #ffffff !important;
+    color: #212529 !important;
+}
+
+/* Target label elements specifically */
+[class*="svelte"] > label,
+[class*="svelte"] > span,
+[class*="svelte"] label,
+[class*="svelte"] span[data-testid] {
+    color: #212529 !important;
+}
+
+/* Ensure info text is visible */
+[class*="svelte"] .info,
+[class*="svelte"] [class*="info"],
+span[class*="info"] {
+    color: #666666 !important;
+}
+
+/* Radio and checkbox containers */
+[class*="svelte"][class*="radio"],
+[class*="svelte"][class*="checkbox"],
+.gr-radio, .gr-checkbox {
+    background: #ffffff !important;
+}
+
+[class*="svelte"][class*="radio"] label,
+[class*="svelte"][class*="radio"] span,
+[class*="svelte"][class*="checkbox"] label,
+[class*="svelte"][class*="checkbox"] span {
+    color: #212529 !important;
+}
+
+/* File upload area */
+[class*="svelte"][class*="file"],
+.gr-file, .file-upload {
+    background: #f8f9fa !important;
+    border: 2px dashed #dee2e6 !important;
+}
+
+[class*="svelte"][class*="file"] span,
+[class*="svelte"][class*="file"] label {
+    color: #212529 !important;
+}
+
+/* Input containers */
+[class*="svelte"][class*="textbox"],
+[class*="svelte"][class*="input"] {
+    background: #ffffff !important;
+}
+
+[class*="svelte"][class*="textbox"] label,
+[class*="svelte"][class*="textbox"] span,
+[class*="svelte"][class*="input"] label,
+[class*="svelte"][class*="input"] span {
     color: #212529 !important;
 }
 """

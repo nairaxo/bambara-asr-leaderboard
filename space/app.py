@@ -137,12 +137,14 @@ with gr.Blocks(theme=gr.themes.Default(), title="Bambara ASR Benchmark Leaderboa
                     outputs=[weight_description]
                 )
                 
-                gr.Markdown("""
-                <div style="margin-top: 20px; padding: 10px; background: #e9ecef; border-radius: 8px;">
-                    <strong>Legend:</strong><br>
-                    🏆 = 1st Place | 🥈 = 2nd Place | 🥉 = 3rd Place<br>
-                    <span style="background-color: #28a745; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Open Source</span> = Model available on HuggingFace (click name to visit) | 
-                    <span style="background-color: #dc3545; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">Proprietary</span> = Closed source model
+                gr.HTML("""
+                <div style="margin-top: 20px; padding: 15px; background: #e9ecef; border-radius: 8px; color: #212529 !important;">
+                    <strong style="color: #212529;">Legend:</strong><br>
+                    <span style="color: #212529;">🏆 = 1st Place | 🥈 = 2nd Place | 🥉 = 3rd Place</span><br><br>
+                    <span style="background-color: #28a745; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px;">Open Source</span>
+                    <span style="color: #212529;"> = Model available on HuggingFace (click name to visit)</span><br>
+                    <span style="background-color: #dc3545; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-top: 5px; display: inline-block;">Proprietary</span>
+                    <span style="color: #212529;"> = Closed source model</span>
                 </div>
                 """)
         
@@ -227,58 +229,52 @@ with gr.Blocks(theme=gr.themes.Default(), title="Bambara ASR Benchmark Leaderboa
                     """
                 )
             
-                with gr.Row():
-                    model_name_input = gr.Textbox(
-                        label="Model Name",
-                        placeholder="e.g., MALIBA-AI/bambara-whisper-large",
-                        info="Use a descriptive name to identify your model"
-                    )
+                gr.HTML('<label style="color: #212529; font-weight: 600; font-size: 14px; display: block; margin-bottom: 8px;">Model Name</label>')
+                model_name_input = gr.Textbox(
+                    label="",
+                    placeholder="e.g., MALIBA-AI/bambara-whisper-large",
+                    show_label=False,
+                    elem_classes=["light-input"]
+                )
+                gr.HTML('<span style="color: #666666; font-size: 12px;">Use a descriptive name to identify your model</span>')
                 
-                gr.Markdown("### 📜 Model License Information")
-                gr.Markdown(
+                gr.HTML('<h3 style="color: #2f3b7d; margin-top: 24px;">📜 Model License Information</h3>')
+                gr.HTML(
                     """
-                    <div style="background: #fff3cd; padding: 10px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid #ffc107;">
-                        <strong>⚠️ Important:</strong> If your model is <strong>Open Source</strong>, you must provide a valid HuggingFace URL. 
-                        The model name will be displayed as a clickable link to your model repository.
+                    <div style="background: #fff3cd; padding: 12px 16px; border-radius: 8px; margin: 12px 0; border-left: 4px solid #ffc107;">
+                        <strong style="color: #856404;">⚠️ Important:</strong> 
+                        <span style="color: #856404;">If your model is <strong>Open Source</strong>, you must provide a valid HuggingFace URL. 
+                        The model name will be displayed as a clickable link to your model repository.</span>
                     </div>
                     """
                 )
                 
-                with gr.Row():
-                    license_type_input = gr.Radio(
-                        choices=["Open Source", "Proprietary"],
-                        label="License Type",
-                        value="Open Source",
-                        info="Select the license type for your model"
-                    )
-                
-                with gr.Row():
-                    model_url_input = gr.Textbox(
-                        label="HuggingFace Model URL",
-                        placeholder="https://huggingface.co/your-org/your-model",
-                        info="Required for Open Source models. Must be a valid HuggingFace URL.",
-                        visible=True
-                    )
-                
-                def toggle_url_visibility(license_type):
-                    if license_type == "Open Source":
-                        return gr.update(visible=True, info="Required for Open Source models. Must be a valid HuggingFace URL.")
-                    else:
-                        return gr.update(visible=True, info="Optional for Proprietary models.")
-                
-                license_type_input.change(
-                    fn=toggle_url_visibility,
-                    inputs=[license_type_input],
-                    outputs=[model_url_input]
+                gr.HTML('<label style="color: #212529; font-weight: 600; font-size: 14px; display: block; margin-bottom: 8px;">License Type</label>')
+                license_type_input = gr.Radio(
+                    choices=["Open Source", "Proprietary"],
+                    label="",
+                    value="Open Source",
+                    show_label=False,
+                    elem_classes=["light-radio"]
                 )
                 
-                gr.Markdown("### 📁 Prediction File")
+                gr.HTML('<label style="color: #212529; font-weight: 600; font-size: 14px; display: block; margin-top: 16px; margin-bottom: 8px;">HuggingFace Model URL</label>')
+                model_url_input = gr.Textbox(
+                    label="",
+                    placeholder="https://huggingface.co/your-org/your-model",
+                    show_label=False,
+                    elem_classes=["light-input"]
+                )
+                gr.HTML('<span style="color: #666666; font-size: 12px;">Required for Open Source models. Must be a valid HuggingFace URL.</span>')
+                
+                gr.HTML('<h3 style="color: #2f3b7d; margin-top: 24px;">📁 Prediction File</h3>')
                 with gr.Row():
                     csv_upload = gr.File(
                         label="Upload CSV File",
-                        file_types=[".csv"]
+                        file_types=[".csv"],
+                        elem_classes=["light-file"]
                     )
-                    gr.Markdown("*CSV with columns: id, text*")
+                    gr.HTML('<span style="color: #666666; font-size: 14px; padding: 20px;">CSV with columns: id, text</span>')
                     
                 submit_btn = gr.Button("🚀 Submit", variant="primary")
                 output_msg = gr.Textbox(label="Status", interactive=False)
