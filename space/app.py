@@ -321,11 +321,11 @@ with gr.Blocks(theme=gr.themes.Default(), title="Bambara ASR Benchmark Leaderboa
                 
                     ### Dataset Characteristics
                 
-                    * **Language**: Bambara (native to Mali and surrounding regions)
+                    * **Language**: Bambara (pure bambara)
                     * **Task**: Automatic Speech Recognition (ASR)
-                    * **Domain**: Diverse speech samples covering various topics and speaking styles
-                    * **Speakers**: Multiple native Bambara speakers with different accents and dialects
-                    * **Audio Quality**: Various recording conditions to test model robustness
+                    * **Domain**: Mainly about the Mali constitution
+                    * **Speakers**: Single speaker (male)
+                    * **Audio Quality**: high-quality recordings (studio recordings)
                 
                     ### Evaluation Metrics
                 
