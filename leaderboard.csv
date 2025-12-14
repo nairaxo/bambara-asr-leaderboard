@@ -16,3 +16,4 @@ RobotsMali/stt-bm-quartznet15x5-v0,0.7582149959156989,0.2523083770898077,0.60644
 sudoping01/maliba-asr-v0,0.9485644265541816,0.7171508663670738,0.8791403584980492,2025-12-14 03:43:28,Open Source,https://huggingface.co/sudoping01/maliba-asr-v0
 openai/whisper-large-v2,1.0683651893274848,0.6079931256704183,0.9302535702303648,2025-12-13 21:51:48,Open Source,https://huggingface.co/openai/whisper-large-v2
 openai/whisper-tiny,1.1272441834552402,0.6660586481884937,0.9888885228752162,2025-12-14 13:25:23,Open Source,https://huggingface.co/openai/whisper-tiny
+openai/whisper-medium,1.2317899880866003,0.9995453025059231,1.1621165824123971,2025-12-14 13:25:49,Open Source,https://huggingface.co/openai/whisper-medium
