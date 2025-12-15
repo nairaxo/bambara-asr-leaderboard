@@ -1,5 +1,6 @@
 Model_Name,WER,CER,Combined_Score,timestamp,License,Model_URL
 djelia/asr-v2,0.475041920233161,0.13563343206932,0.3732193737840086,2025-12-13 21:20:03,Proprietary,
+RobotsMali-soloba-ctc-0.6b-v3,0.4676263655336252,0.16022197690980222,0.37540504894647825,2025-12-15 11:56:46,Open Source,https://huggingface.co/RobotsMali/soloba-ctc-0.6b-v3
 djelia/asr-v1,0.4856333307102457,0.1300139362043154,0.3789475123584666,2025-12-13 21:19:09,Proprietary,
 RobotsMali/soloni-114m-tdt-ctc-v3,0.4832414129317886,0.1481279881653133,0.382707385501846,2025-12-13 22:47:24,Open Source,https://huggingface.co/RobotsMali/soloni-114m-tdt-ctc-v3
 soloni-114m-tdt-ctc-v3-ctc-dec,0.4832414129317886,0.1481279881653133,0.382707385501846,2025-12-15 11:50:57,Open Source,https://huggingface.co/RobotsMali/soloni-114m-tdt-ctc-v3
