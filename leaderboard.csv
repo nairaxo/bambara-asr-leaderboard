@@ -28,4 +28,5 @@ openai/whisper-large-v2,1.0683651893274848,0.6079931256704183,0.9302535702303648
 nvidia/canary-1b-v2,1.1164366857594674,0.6054606208551805,0.9631438662881812,2025-12-17 18:53:59,Open Source,https://huggingface.co/nvidia/canary-1b-v2
 openai/whisper-tiny,1.1272441834552402,0.6660586481884937,0.9888885228752162,2025-12-14 13:25:23,Open Source,https://huggingface.co/openai/whisper-tiny
 openai/whisper-small,1.0997489363812245,0.7583874240844245,0.9973404826921844,2025-12-14 13:26:31,Open Source,https://huggingface.co/openai/whisper-small
+openai/whisper-large-v3,1.2106241311075907,0.7510184199607144,1.0727424177635276,2025-12-17 18:57:03,Open Source,https://huggingface.co/openai/whisper-large-v3
 openai/whisper-medium,1.2317899880866003,0.9995453025059232,1.1621165824123971,2025-12-14 13:25:49,Open Source,https://huggingface.co/openai/whisper-medium
