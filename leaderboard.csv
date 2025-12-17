@@ -22,9 +22,10 @@ Panga-Azazia-bambara-asr-ngram,0.6912885800970985,0.1980131537634645,0.543305952
 Panga-Azazia/bambara-asr,0.7000096634417643,0.2038557546051904,0.5511634907907921,2025-12-13 22:15:17,Open Source,https://huggingface.co/Panga-Azazia/bambara-asr
 RobotsMali/stt-bm-quartznet15x5-v1,0.7298366167398486,0.2175467643938228,0.5761496610360408,2025-12-13 22:44:00,Open Source,https://huggingface.co/RobotsMali/stt-bm-quartznet15x5-v1
 RobotsMali/stt-bm-quartznet15x5-v0,0.7582149959156989,0.2523083770898077,0.6064430102679315,2025-12-13 22:44:55,Open Source,https://huggingface.co/RobotsMali/stt-bm-quartznet15x5-v0
+nvidia/parakeet-tdt-0.6b-v3,1.0005747538537086,0.4923738803489991,0.8481144918022958,2025-12-17 18:55:17,Open Source,https://huggingface.co/nvidia/parakeet-tdt-0.6b-v3
 sudoping01/maliba-asr-v0,0.9485644265541816,0.7171508663670738,0.8791403584980492,2025-12-14 03:43:28,Open Source,https://huggingface.co/sudoping01/maliba-asr-v0
 openai/whisper-large-v2,1.0683651893274848,0.6079931256704183,0.9302535702303648,2025-12-13 21:51:48,Open Source,https://huggingface.co/openai/whisper-large-v2
-nvidia/canary-1b-v2,1.1164366857594674,0.6054606208551805,0.9631438662881813,2025-12-17 18:53:59,Open Source,https://huggingface.co/nvidia/canary-1b-v2
+nvidia/canary-1b-v2,1.1164366857594674,0.6054606208551805,0.9631438662881812,2025-12-17 18:53:59,Open Source,https://huggingface.co/nvidia/canary-1b-v2
 openai/whisper-tiny,1.1272441834552402,0.6660586481884937,0.9888885228752162,2025-12-14 13:25:23,Open Source,https://huggingface.co/openai/whisper-tiny
 openai/whisper-small,1.0997489363812245,0.7583874240844245,0.9973404826921844,2025-12-14 13:26:31,Open Source,https://huggingface.co/openai/whisper-small
 openai/whisper-medium,1.2317899880866003,0.9995453025059232,1.1621165824123971,2025-12-14 13:25:49,Open Source,https://huggingface.co/openai/whisper-medium
