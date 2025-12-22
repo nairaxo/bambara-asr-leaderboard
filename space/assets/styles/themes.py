@@ -209,14 +209,13 @@ button.svelte-1tcem6n.svelte-1tcem6n:hover {
 }
 
 /* ============================================
-   TABLE STYLING
+   TABLE STYLING - COMPACT & CLEAN
    ============================================ */
-
 div[class*="gradio-container"] .prose table {
     width: 100% !important;
     border-collapse: separate !important;
     border-spacing: 0 !important;
-    margin: 24px 0 !important;
+    margin: 20px 0 !important;
     background: white !important;
     border-radius: 12px !important;
     overflow: hidden !important;
@@ -230,10 +229,10 @@ div[class*="gradio-container"] .prose thead {
 div[class*="gradio-container"] .prose th {
     color: #ffffff !important;
     font-weight: 700 !important;
-    font-size: 14px !important;
+    font-size: 13.5px !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-    padding: 16px 12px !important;
+    letter-spacing: 0.6px !important;
+    padding: 14px 12px !important;     /* Slightly reduced from 16px */
     border: none !important;
     text-align: center !important;
 }
@@ -246,6 +245,7 @@ div[class*="gradio-container"] .prose th:first-child {
 div[class*="gradio-container"] .prose tbody tr {
     border-bottom: 1px solid #e9ecef !important;
     transition: background-color 0.2s ease !important;
+    height: 48px !important;           /* Enforces consistent row height */
 }
 
 div[class*="gradio-container"] .prose tbody tr:hover {
@@ -257,11 +257,12 @@ div[class*="gradio-container"] .prose tbody tr:last-child {
 }
 
 div[class*="gradio-container"] .prose td {
-    padding: 14px 12px !important;
-    color: #212529;
+    padding: 10px 12px !important;     /* Reduced from 14px → 10px (main fix) */
+    color: #212529 !important;
     font-size: 14px !important;
     border: none !important;
     text-align: center !important;
+    vertical-align: middle !important; /* Better alignment */
 }
 
 div[class*="gradio-container"] .prose td:first-child {
@@ -271,9 +272,10 @@ div[class*="gradio-container"] .prose td:first-child {
     padding-left: 24px !important;
 }
 
-/* Medal styling */
-div[class*="gradio-container"] .prose td:first-child:has(.emoji) {
-    font-size: 16px !important;
+/* Medal + Rank in first column */
+div[class*="gradio-container"] .prose td:first-child {
+    font-size: 15px !important;
+    line-height: 1.4 !important;
 }
 
 /* ============================================
