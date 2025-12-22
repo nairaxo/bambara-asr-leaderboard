@@ -287,10 +287,16 @@ div[class*="gradio-container"] .prose td:first-child .emoji {
    SPECIFIC TABLE COLUMN WIDTHS
    ============================================ */
 
-/* Main leaderboard */
+
+/* Main leaderboard - First column (Rank + Model Name) */
 div[class*="gradio-container"] .prose th:first-child,
 div[class*="gradio-container"] .prose td:first-child {
-    min-width: 350px !important;
+    width: 30% !important;          
+    min-width: 240px !important;     
+    max-width: 400px !important;     
+    white-space: nowrap !important;  
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
 }
 
 /* Model-specific table */
