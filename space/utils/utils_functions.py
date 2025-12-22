@@ -420,3 +420,15 @@ def create_main_leaderboard(wer_weight=50, cer_weight=50):
     
     final_cols = ["Rank", "Model Name", "WER (%)", "CER (%)", "Combined Score (%)", "License", "Timestamp"]
     return display_df[final_cols]
+
+
+def get_weight_description(wer_weight, cer_weight):
+    total = wer_weight + cer_weight
+    if total > 0:
+        wer_pct = (wer_weight / total) * 100
+        cer_pct = (cer_weight / total) * 100
+    else:
+        wer_pct = 50
+        cer_pct = 50
+    
+    return f"Current ranking: {wer_pct:.0f}% WER + {cer_pct:.0f}% CER"
