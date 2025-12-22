@@ -300,8 +300,8 @@ def process_submission(model_name, csv_file, references, license_type="Unknown",
         return "Error: Please provide a HuggingFace model URL for open source models.", None
     
     if model_url and model_url.strip():
-        if not (model_url.startswith("https://huggingface.co/") or model_url.startswith("http://huggingface.co/")):
-            return "Error: Model URL must be a valid HuggingFace URL (https://huggingface.co/...).", None
+        if not (model_url.startswith("https") or model_url.startswith("http")) or "huggingface.co" not in model_url:
+            return "Error: Model URL must be a valid URL (https://huggingface.co/...).", None
     
     try:
         df = pd.read_csv(csv_file)
@@ -366,29 +366,27 @@ def process_submission(model_name, csv_file, references, license_type="Unknown",
     except Exception as e:
         return f"Error processing submission: {str(e)}", None
 
-
 def create_main_leaderboard(wer_weight=50, cer_weight=50):
     current_data = get_current_leaderboard()
     
     if len(current_data) == 0:
-        return pd.DataFrame(columns=["Model Name", "WER (%)", "CER (%)", "Combined Score (%)", "License", "Timestamp"])
+        columns = ["Rank", "Model Name", "WER (%)", "CER (%)", "Combined Score (%)", "License", "Timestamp"]
+        return pd.DataFrame(columns=columns)
     
     display_df = current_data.copy()
     
     wer_w = wer_weight / 100.0
     cer_w = cer_weight / 100.0
-    
     total = wer_w + cer_w
     if total > 0:
-        wer_w = wer_w / total
-        cer_w = cer_w / total
-    else:
-        wer_w = 0.5
-        cer_w = 0.5
+        wer_w /= total
+        cer_w /= total
     
     display_df["Custom_Score"] = display_df["WER"] * wer_w + display_df["CER"] * cer_w
     
     display_df = display_df.sort_values("Custom_Score", ascending=True).reset_index(drop=True)
+    
+    display_df.insert(0, "Rank", range(1, len(display_df) + 1))
     
     display_df["Model_Name"] = display_df.apply(
         lambda row: format_model_name_with_link(
@@ -399,10 +397,8 @@ def create_main_leaderboard(wer_weight=50, cer_weight=50):
         axis=1
     )
     
-    for col in ["WER", "CER"]:
-        if col in display_df.columns:
-            display_df[f"{col} (%)"] = display_df[col].apply(lambda x: f"{x * 100:.2f}")
-    
+    display_df["WER (%)"] = display_df["WER"].apply(lambda x: f"{x * 100:.2f}")
+    display_df["CER (%)"] = display_df["CER"].apply(lambda x: f"{x * 100:.2f}")
     display_df["Combined Score (%)"] = display_df["Custom_Score"].apply(lambda x: f"{x * 100:.2f}")
     
     display_df = add_medals_to_models(display_df, score_col="Custom_Score")
@@ -422,19 +418,5 @@ def create_main_leaderboard(wer_weight=50, cer_weight=50):
         "timestamp": "Timestamp"
     })
     
-    final_cols = ["Model Name", "WER (%)", "CER (%)", "Combined Score (%)", "License", "Timestamp"]
-    display_df = display_df[[col for col in final_cols if col in display_df.columns]]
-    
-    return display_df
-
-
-def get_weight_description(wer_weight, cer_weight):
-    total = wer_weight + cer_weight
-    if total > 0:
-        wer_pct = (wer_weight / total) * 100
-        cer_pct = (cer_weight / total) * 100
-    else:
-        wer_pct = 50
-        cer_pct = 50
-    
-    return f"Current ranking: {wer_pct:.0f}% WER + {cer_pct:.0f}% CER"
+    final_cols = ["Rank", "Model Name", "WER (%)", "CER (%)", "Combined Score (%)", "License", "Timestamp"]
+    return display_df[final_cols]
