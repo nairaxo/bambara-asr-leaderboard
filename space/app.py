@@ -388,13 +388,13 @@ with gr.Blocks(theme=gr.themes.Default(), title="Bambara ASR Benchmark Leaderboa
             If you use the Bambara ASR benchmark for your scientific publication, or if you find the resources in this leaderboard useful, please cite our work:
             
             ```bibtex
-            @article{bambara_asr_benchmark_2025,
-                title={Bambara ASR Benchmark: Evaluating Speech Recognition for Bambara Language},
-                author={MALIBA-AI Team and RobotsMali AI4D-LAB and Djelia},
-                journal={arXiv preprint},
-                year={2025},
-                url={https://huggingface.co/datasets/MALIBA-AI/bambara-speech-recognition-leaderboard}
-            }
+             @misc{bambara_asr_leaderboard_2025,
+                  title        = {Bambara Speech Recognition Leaderboard},
+                  author       = {{MALIBA-AI Team} and {RobotsMali AI4D-LAB} and {Djelia}},
+                  year         = {2025},
+                  howpublished = {Hugging Face Dataset and Public Leaderboard},
+                  note         = {\url{https://huggingface.co/datasets/MALIBA-AI/bambara-speech-recognition-leaderboard}}
+                }
             ```
 
             """
