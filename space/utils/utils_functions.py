@@ -367,7 +367,7 @@ def process_submission(model_name, csv_file, references, license_type="Unknown",
         return f"Error processing submission: {str(e)}", None
 
 
-def create_main_leaderboard(wer_weight=70, cer_weight=30):
+def create_main_leaderboard(wer_weight=50, cer_weight=50):
     current_data = get_current_leaderboard()
     
     if len(current_data) == 0:
