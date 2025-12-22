@@ -209,7 +209,7 @@ button.svelte-1tcem6n.svelte-1tcem6n:hover {
 }
 
 /* ============================================
-   TABLE STYLING - COMPACT & PROFESSIONAL (LIKE SCREENSHOT 2)
+   TABLE STYLING 
    ============================================ */
 div[class*="gradio-container"] .prose table {
     width: 100% !important;
@@ -486,7 +486,7 @@ button[variant="primary"]:hover {
 }
 
 /* ============================================
-   LEGEND BOX STYLING - FIXED
+   LEGEND BOX STYLING
    ============================================ */
 
 .legend-box {
@@ -552,7 +552,7 @@ button[variant="primary"]:hover {
 }
 
 /* ============================================
-   MARKDOWN CONTENT - FIXED TEXT VISIBILITY
+   MARKDOWN CONTENT 
    ============================================ */
 
 div[class*="gradio-container"] .prose h1 {
