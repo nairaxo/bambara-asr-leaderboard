@@ -39,12 +39,12 @@ Welcome contributions!
 
 ## Citation
 ```
-@article{bambara_asr_benchmark_2025,
-    title={Bambara ASR Benchmark: Evaluating Speech Recognition for a Low-Resource African Language},
-    author={MALIBA-AI Team and RobotsMali AI4D-LAB and Djelia},
-    journal={Unpublished},
-    year={2025},
-    url={https://huggingface.co/datasets/sudoping01/bam-asr-benchmark}
+@misc{bambara_asr_benchmark_2025,
+  title        = {Where Are We at with Automatic Speech Recognition for the Bambara Language?},
+  author       = {{MALIBA-AI Team} and {RobotsMali AI4D-LAB} and {Djelia}},
+  year         = {2025},
+  howpublished = {Benchmark dataset and public leaderboard},
+  note         = {\url{https://huggingface.co/datasets/sudoping01/bam-asr-benchmark}},
 }
 ```
 
