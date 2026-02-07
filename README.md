@@ -1,53 +1,78 @@
 # Bambara ASR Leaderboard
 
-[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/MALIBA-AI/bambara-asr-leaderboard)     [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/MALIBA-AI/bambara-asr-leaderboard)  [![Dataset](https://img.shields.io/badge/Dataset-Benchmark-orange?logo=huggingface)](https://huggingface.co/datasets/MALIBA-AI/bambara-speech-recognition-leaderboard)   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+[![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue)](https://huggingface.co/spaces/MALIBA-AI/bambara-asr-leaderboard) [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/MALIBA-AI/bambara-asr-leaderboard) [![Dataset](https://img.shields.io/badge/Dataset-Benchmark-orange?logo=huggingface)](https://huggingface.co/datasets/MALIBA-AI/bambara-asr-benchmark) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-The **Bambara ASR Leaderboard** is a collaborative benchmark for evaluating Automatic Speech Recognition (ASR) models on Bambara, a low-resource African language spoken primarily in Mali. It promotes innovation in ASR for underrepresented languages, supporting the mission: *"No Malian Language Left Behind"*.
+A public benchmark and leaderboard for evaluating Automatic Speech Recognition on Bambara (Bamanankan), a language spoken by over 14 million people in Mali and across West Africa.
 
-This repository hosts the source code for the leaderboard application, deployed on Hugging Face Spaces with results persisted via GitHub for reliability.
+This repository contains the source code for the leaderboard application, deployed on [Hugging Face Spaces](https://huggingface.co/spaces/MALIBA-AI/bambara-asr-leaderboard) with results persisted via GitHub.
 
+## Benchmark
 
+All evaluations run against the [**Bambara ASR Benchmark**](https://huggingface.co/datasets/MALIBA-AI/bambara-asr-benchmark): 1 hour of studio-recorded Malian constitutional text, transcribed and validated by linguists from Mali's DNENF-LN.
 
-## Dataset
+| | |
+|:--|:--|
+| Language | Bambara (bm) |
+| Domain | Malian Constitution — legal/formal register |
+| Duration | 1.075 hours, 518 segments |
+| Speaker | 1 adult male (main), 1 female (national anthem) |
+| Vocabulary | 1,198 unique words, ~75% absent from existing training corpora |
+| Acoustic conditions | Studio, single-channel, 99% of segments ≥ 15 dB SNR |
+| Code-switching | None |
 
-Evaluations use the  **[Bambara ASR Benchmark](https://huggingface.co/datasets/MALIBA-AI/bambara-speech-recognition-leaderboard)** dataset:
-- **Language**: Bambara
-- **Task**: ASR
-- **Characteristics**: Diverse samples from multiple, accents, domains, and audio qualities.
-- **Normalization**: Lowercase, remove punctuation, normalize whitespace.
+The benchmark is intentionally narrow: formal vocabulary, clean audio, no code-switching. It tests domain robustness and OOV handling under near-optimal conditions. Details in the [paper](https://huggingface.co/datasets/MALIBA-AI/bambara-asr-benchmark).
 
-**Submission Process**:
-1. Access the test audio from the dataset.
-2. Generate transcriptions.
-3. Format as CSV (`id,text` matching dataset IDs).
-4. Visit the [HF Space](https://huggingface.co/spaces/sudoping01/bam-asr-leaderboard).
-4. Submit via the app's "Submit New Results" tab.
+## Scoring
 
-## Usage
+Transcriptions are normalized before scoring: lowercase, punctuation removed, whitespace collapsed.
 
-- Visit the [HF Space](https://huggingface.co/spaces/sudoping01/bam-asr-leaderboard).
-- Explore tabs: Leaderboard, Model Performance, Comparisons, Submissions, Dataset Info.
-- Submit: Upload model name and CSV; scores computed automatically.
+**Default ranking metric:** Combined Score = 0.5 × WER + 0.5 × CER
+
+The leaderboard UI lets you adjust WER/CER weights to match your use case.
+
+## Submitting Results
+
+1. Download the test audio from the [benchmark dataset](https://huggingface.co/datasets/MALIBA-AI/bambara-asr-benchmark).
+2. Run your model and generate transcriptions.
+3. Format output as CSV with columns `id,text`, where `id` matches the dataset segment IDs.
+4. Go to the [leaderboard](https://huggingface.co/spaces/MALIBA-AI/bambara-asr-leaderboard) and upload via the **Submit New Results** tab.
+
+Scores are computed automatically on submission.
+
+## Running Locally
+
+```bash
+git clone https://github.com/MALIBA-AI/bambara-asr-leaderboard.git
+cd bambara-asr-leaderboard
+pip install -r requirements.txt
+python app.py
+```
+
+## Current Top Results
+ Check the leaderboard [leaderboard](https://huggingface.co/spaces/MALIBA-AI/bambara-asr-leaderboard).
 
 ## Contributing
-1
-Welcome contributions! 
-- Fork, branch, implement (e.g., new metrics, UI improvements).
-- Test locally.
-- PR with clear description.
-- Report issues via GitHub.
+
+Contributions welcome new metrics, UI improvements, bug fixes.
+
+1. Fork the repo and create a branch.
+2. Implement your changes and test locally.
+3. Open a PR with a clear description of what changed and why.
+
+Report bugs or suggest features via [GitHub Issues](https://github.com/MALIBA-AI/bambara-asr-leaderboard/issues).
 
 ## Citation
-```
-@misc{bambara_asr_benchmark_2025,
+
+```bibtex
+@misc{BambaraASRBenchmark2025,
   title        = {Where Are We at with Automatic Speech Recognition for the Bambara Language?},
-  author       = {{MALIBA-AI Team} and {RobotsMali AI4D-LAB} and {Djelia}},
+  author       = {Seydou Diallo and Yacouba Diarra and Mamadou K. Keita and Panga Azazia Kamat{\'e} and Adam Bouno Kampo and Aboubacar Ouattara},
   year         = {2025},
-  howpublished = {Benchmark dataset and public leaderboard},
-  note         = {\url{https://huggingface.co/datasets/sudoping01/bam-asr-benchmark}},
+  howpublished = {Hugging Face Datasets},
+  url          = {https://huggingface.co/datasets/MALIBA-AI/bambara-asr-benchmark}
 }
 ```
 
 ## License
 
-MIT License. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
