@@ -1,5 +1,5 @@
 Model_Name,WER,CER,Combined_Score,timestamp,License,Model_URL
-sudoping01/maliba-asr-v3-merged,0.45730294334104443,0.13447397423334317,0.36045425260873404,2025-12-23 13:59:12,Open Source,https://huggingface.co/sudoping01/maliba-asr-v3-exp-merged
+MALIBA-AI/bambara-asr-v3,0.45730294334104443,0.13447397423334317,0.36045425260873404,2025-12-23 13:59:12,Open Source,https://huggingface.co/MALIBA-AI/bambara-asr-v3
 djelia/asr-v2,0.475041920233161,0.13563343206932,0.3732193737840086,2025-12-13 21:20:03,Proprietary,
 RobotsMali/soloba-ctc-0.6b-v3,0.4676263655336252,0.1602219769098022,0.3754050489464782,2025-12-15 11:56:46,Open Source,https://huggingface.co/RobotsMali/soloba-ctc-0.6b-v3
 djelia/asr-v1,0.4856333307102457,0.1300139362043154,0.3789475123584666,2025-12-13 21:19:09,Proprietary,
